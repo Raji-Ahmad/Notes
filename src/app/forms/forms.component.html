@@ -1,0 +1,23 @@
+
+<app-split-panel class="flex-grow-1">
+  <div top class="d-flex text-center text-justify bg-dark text-light p-1">
+      <a [routerLink]="['/create/note']" class="flex-grow-1 btn btn-primary m4"> Create Note </a>
+      <a [routerLink]="['/create/book']" class="flex-grow-1 btn btn-primary m4"> Create Book </a>
+  </div>
+
+  <div left class="mx-3">
+    <h4 class="text-center text-justify bg-dark text-light p-1"> Create new note details</h4>
+    <div>
+      <app-name-form title="Author" endpoint="/create-author"></app-name-form>
+
+      <div *ngFor="let detail of otherDetails | keyvalue">
+        <app-cat-forms title="{{detail.key}}" endpoint="{{detail.value}}"></app-cat-forms>
+      </div>
+    </div>
+  </div>
+
+  <div right class="" style="height: 100%">
+
+    <router-outlet></router-outlet>
+  </div>
+</app-split-panel>

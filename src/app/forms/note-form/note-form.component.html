@@ -1,0 +1,70 @@
+<div class="container mt-3" style="height: 100%">
+  <div *ngIf="isLoading" class="main-container centered-content" style="height: 100%">
+    <div class="spinner-border" role="status" >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading" class="m-0  p-0" style="height: 100%;">
+    <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <form [formGroup]="noteForm" (ngSubmit)="postForm()">
+    <div class="my-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title"
+             placeholder="Note Title" formControlName="title" maxlength="100">
+    </div>
+
+    <div class="my-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea class="form-control" id="description" name="description"
+                placeholder="Description" formControlName="description" maxlength="2000">
+
+      </textarea>
+    </div>
+
+        <div class="my-3">
+      <label for="bookLink" class="form-label">Source</label>
+      <br>
+      <select id="bookLink" name="bookLink" formControlName="bookLink">
+        <option *ngFor="let book of books" [value]="book.id">
+          {{ book.title }}
+        </option>
+      </select>
+    </div>
+
+            <div class="my-3">
+      <label for="category" class="form-label">Category</label>
+      <br>
+      <select id="category" name="category" formControlName="category">
+        <option *ngFor="let cat of noteCats" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+                <div class="my-3">
+      <label for="tags" class="form-label">Tags</label>
+      <br>
+      <select id="tags" name="tags" formControlName="tags" style="height: 4rem;" multiple>
+        <option *ngFor="let cat of tags" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+
+    <button type="submit" class="btn btn-success mt-3" [disabled]="!noteForm.valid">Add</button>
+  </form>
+  </div>
+
+
+</div>
+
+
+

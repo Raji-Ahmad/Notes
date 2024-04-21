@@ -1,0 +1,17 @@
+<div>
+   <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+  <p> {{ title }} </p>
+  <form [formGroup]="nameForm" (ngSubmit)="postForm()">
+    <div class="mb-3">
+      <label for="{{title.split(' ').join('')}}" class="form-label">name</label>
+      <input type="text" class="form-control" id="{{title.split(' ').join('')}}" name="name"
+             placeholder="{{ title }} name" formControlName="name">
+      <button type="submit" class="btn btn-success mt-3" [disabled]="!nameForm.valid">Add</button>
+    </div>
+  </form>
+</div>

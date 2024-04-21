@@ -1,0 +1,16 @@
+span.show{
+  color: #18191f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+span:hover {
+  cursor: pointer;
+}
+
+.max-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 5; /* Number of lines to show */
+}

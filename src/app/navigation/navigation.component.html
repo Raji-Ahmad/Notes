@@ -1,0 +1,20 @@
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a [routerLink]="['/']" class="navbar-brand">Ahmad Notes</a>
+    <div class="d-flex flex-row">
+      <form class="d-flex mx-3" role="search" (keyup.enter)="search()" (submit)="onFormSubmit($event)">
+        <input class="form-control me-2" type="search" placeholder="Search Title" aria-label="Search"
+               [formControl]="searchTerm">
+        <button class="btn btn-outline-success" type="button" (click)="search()">Search</button>
+      </form>
+      <a class="mx-3" [routerLink]="['/login']" >
+        <button mat-raised-button color="primary">Login</button>
+      </a>
+      <a class="mx-3" [routerLink]="['/logout']" >
+        <button mat-raised-button color="primary">Logout</button>
+      </a>
+    </div>
+
+
+  </div>
+</nav>

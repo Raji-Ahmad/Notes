@@ -1,0 +1,78 @@
+<div class="container mt-3">
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <form [formGroup]="bookForm" (ngSubmit)="postForm()">
+
+    <div class="my-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="text" class="form-control" id="title" name="title"
+             placeholder="Book Title" formControlName="title">
+    </div>
+
+    <div class="my-3">
+      <label for="author" class="form-label">Author</label>
+      <br>
+      <select id="author" name="author" formControlName="author">
+        <option *ngFor="let author of authors" [value]="author.id">
+          {{ author.fullName }}
+        </option>
+      </select>
+    </div>
+
+
+    <div class="my-3">
+      <label for="link" class="form-label">Link</label>
+      <input type="url" class="form-control" id="link" name="link"
+             placeholder="Book Title" formControlName="link">
+    </div>
+
+
+    <div class="my-3">
+      <label for="category" class="form-label">Category</label>
+      <br>
+      <select id="category" name="category" formControlName="category">
+        <option *ngFor="let cat of bookCats" [value]="cat.id">
+          {{ cat.name }}
+        </option>
+      </select>
+    </div>
+
+
+    <div class="my-3">
+      <label for="datePublished" class="form-label">Date published</label>
+      <input type="date" class="form-control" id="datePublished" name="link"
+             placeholder="Date published" formControlName="datePublished">
+    </div>
+
+
+    <div class="m-3 ">
+      <input type="file" class="file-input"
+             (change)="onFileSelected($event)" #fileUpload formControlName="image">
+
+      <div class="file-upload p-2" style="border: solid 1px grey; width: min(70%, 40em);">
+
+        <div style="font-size: small; overflow: hidden; width:100%" class="bg-light p-1 ">
+          <p style="width: 12rem">{{ file?.name || "Upload Book image." }}</p>
+          <button type="button" class="upload-btn"
+                  (click)="fileUpload.click()">
+
+            <i class="bi bi-cloud-upload-fill" style="font-size: 2rem; color: cornflowerblue;"></i>
+
+          </button>
+
+        </div>
+
+
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-success mt-3" [disabled]="!bookForm.valid">Add</button>
+  </form>
+</div>
+
+

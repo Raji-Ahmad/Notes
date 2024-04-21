@@ -1,0 +1,79 @@
+<div class="container flex-grow-1 grey-border">
+  <div class="d-flex flex-sm-row mt-2 justify-content-between">
+    <div style="float: left">
+      <h2>Notes</h2>
+    </div>
+    <div style="float: right">
+      <a [routerLink]="['/create/note']">
+        <button type="button" class="btn btn-primary btn-sm ">Add Note</button>
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="fetchNoteData" class="main-container centered-content" style="height: 100%">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <div *ngIf="notes.length == 0 && !fetchNoteData" class="centered-content" style="height: 100%">
+    <h1>
+      OOPS! NO NOTE FOUND
+    </h1>
+  </div>
+
+  <div *ngIf="!fetchNoteData" class="px-0 container">
+    <div *ngFor="let note of notes; let i = index;" class="px-0 grey-border nc">
+
+      <div *ngIf="noteMessage[i]?.s" class="success-message">
+        {{ noteMessage[i].s }}
+      </div>
+      <div *ngIf="noteMessage[i]?.e" class="error-message">
+        {{ noteMessage[i].e }}
+      </div>
+      <figure class="pt-1">
+        <div class="d-flex flex-row justify-content-between align-items-start">
+          <blockquote class="blockquote mb-md-5 ">
+            <h3>{{ note.title }}</h3>
+          </blockquote>
+
+          <div class="border border-primary border-light d-inline-block rounded desc cat">
+            <a [routerLink]="['/notes']" [queryParams]="{ cat: note.category.name }">
+              <p> {{ note.category.name }}</p>
+            </a>
+          </div>
+        </div>
+
+        <figcaption class="blockquote-footer">
+          <app-show-more-text [text]="note.description" [textLength]=textLength></app-show-more-text>
+
+          <!--            <p class="collapse desc" id="collapseSummary-{{i}}"> {{ note.description }} </p>-->
+        </figcaption>
+      </figure>
+      <div class="d-flex flex-sm-row justify-content-between">
+        <div>
+          <div *ngFor="let tag of note.tags"
+               class="border mx-1 border-primary border-light d-inline-block rounded desc cat">
+            <a [routerLink]="['/notes']" [queryParams]="{ tag: tag.name }">
+              <p> {{ tag.name }}</p>
+            </a>
+          </div>
+        </div>
+        <!--        (click)="deleteNote(note.id)"-->
+        <button class="btn btn-danger med-but m-3 btn-sm" about="delete this note" (click)="openDeleteDialog(note.id,
+        '200ms', '200ms', noteMessage[i])"> Delete
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

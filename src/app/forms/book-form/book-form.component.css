@@ -1,0 +1,32 @@
+.file-input {
+  display: none;
+}
+
+/*!*.field{*!*/
+/*!*  width:50%;*!*/
+/*!*  height: 4em;*!*/
+/*!*  !*font-size: 1em;*!*!*/
+/*!*}*!*/
+
+/*.mat-form-field-appearance-outline .mat-form-field-infix {*/
+/*   padding: 10px;*/
+/*}*/
+/*.mat-form-field-infix {*/
+/*     padding:0;*/
+/*     border-top: 0;*/
+/*}*/
+
+
+/*.mat-form-field-label-wrapper {*/
+/*    top: -0.84375em;*/
+/*    padding-top: 0.84375em;*/
+/*}*/
+
+mat-label, .mat-form-field, .mat-mdc-form-field, .mat-mdc-floating-label, .mdc-floating-label, .mat-form-field-label-wrapper{
+ font-size: smaller;
+}
+
+.mat-mdc-form-field-input-control.mat-mdc-form-field-input-control {
+    height: 1em;
+    font-size: small;
+}

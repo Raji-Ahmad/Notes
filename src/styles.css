@@ -1,1 +1,203 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons';
+
+/*@import "./base";*/
+
+body {
+  /*font-family: "Poppins", sans-serif;*/
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-weight: 400;
+  font-size: 14px;
+  background: #eeeff4;
+  color: #262352;
+  /*var(--textColor) !important;*/
+  padding: 0;
+  margin: 0;
+  /*overflow: hidden;*/
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  margin: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+label {
+  color: #18191f;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+button {
+  /*background: none;*/
+  /*padding: 10px 20px;*/
+  /*border: none;*/
+  /*border-radius: 6px;*/
+  /*margin-right: 6px;*/
+  /*cursor: pointer;*/
+}
+
+.btn-danger {
+  /*background-color: rgb(200, 0, 0);*/
+  /*color: #ffffff;*/
+  /*padding: 16px 32px;*/
+}
+
+.btn-primary {
+  /*background-color: #f8f8fa;*/
+  /*!*var(--primary);*!*/
+  /*color: #02082a;*/
+  /*font-weight: bold;*/
+  /*padding: 16px 32px;*/
+  /*margin: 0.5em 4em;*/
+}
+
+/*.btn-primary-outline {*/
+/*  border: 1px solid #2583f4;*/
+/*  color: #000000;*/
+/*  padding: 16px 32px;*/
+/*}*/
+
+/*.btn-primary-outline:hover {*/
+/*  background-color: #af1c87;*/
+/*  color: #2583f4;*/
+/*}*/
+
+input {
+  box-shadow: none !important;
+  outline: none !important;
+  width: 100%;
+  height: 26px;
+  border: 1px solid #cacaca;
+  border-radius: 4px;
+  padding: 0.4rem;
+}
+
+*::-webkit-scrollbar {
+  width: 2px;
+  height: 4px;
+  background-color: #fff;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #515151;
+}
+
+.text-danger {
+  color: rgb(201, 4, 4);
+}
+
+input.is-invalid {
+  border-color: rgb(201, 4, 4);
+}
+
+
+.error-message {
+  background: #ea545533 !important;
+  color: #ea5455 !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.71rem;
+  margin-bottom: 1rem;
+  border: 1px solid #0000;
+  border-radius: 0.5rem;
+}
+
+.success-message {
+  background: #d4edda;
+  color: #28a745;
+  font-weight: 500;
+  position: relative;
+  padding: 0.71rem;
+  margin-bottom: 1rem;
+  border: 1px solid #0000;
+  border-radius: 0.5rem;
+}
+
+.small-container {
+  margin: 1em 10em;
+  padding: 2em;
+  /*background-color: antiquewhite;*/
+}
+
+.large-container {
+  margin: 1em 5em;
+  padding: 2em;
+  /*background-color: antiquewhite;*/
+}
+
+.to-bot {
+  height: 100%;
+  margin-bottom: 10em;
+}
+
+.grey-border {
+  /*border: #c0bcbc 1px solid;*/
+  border-bottom: #c0bcbc 1px solid;
+  border-top: #c0bcbc 1px solid;
+  margin-bottom: -1px;
+}
+
+.col-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.split-panel {
+  display: flex;
+}
+
+.left-pane {
+  width: 29.5%;
+  padding: 2em;
+  border-right: 2px solid rgb(223, 55, 223);
+}
+
+.right-pane {
+  width: 70%;
+  padding: 2em;
+  border-left: 2px solid rgb(223, 55, 223);
+  flex: 1;
+}
+
+form p label {
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+
+form div input[type="text"],
+form div input[type="file"],
+form div input[type="date"],
+form div input[type="url"]{
+  height: 2em;
+  width: min(70%, 40em);
+}
+
+form div textarea {
+  height: 6em;
+}
+
+form div select {
+  height: 2em;
+  width: min(40%, 20em);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.centered-content {
+  flex: 1;
+  display: flex;
+  justify-content: center; /* Horizontally center the child elements */
+  align-items: center; /* Vertically center the child elements */
+}

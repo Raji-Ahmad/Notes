@@ -1,0 +1,22 @@
+<!--<p *ngIf="text.length <= textLength"> {{text}} </p>-->
+
+<!--<p *ngIf="text.length > textLength && !showMore"> {{text.substring(0, textLength)}}... <span class="show" (click)="showMore = true"> show more</span></p>-->
+
+<!--<p *ngIf="text.length > textLength && showMore"> {{text}} <span class="show" (click)="showMore = false"> show less</span> </p>-->
+
+
+
+<p *ngIf="text.length <= textLength" [innerHTML]="text">
+<span [innerHTML]="text | safeHtmlWithNewlines"></span>
+</p>
+
+<p *ngIf="text.length > textLength && !showMore" >
+  <span [innerHTML]="text.substring(0, textLength)"></span>
+  <span class="show" (click)="showMore = true">... show full note</span>
+</p>
+
+<p *ngIf="text.length > textLength && showMore">
+  <span [innerHTML]="text | safeHtmlWithNewlines"></span>
+  <span class="show" (click)="showMore = false"> ...show less</span>
+</p>
+
